@@ -64,6 +64,12 @@
     padding: 72px 24px 40px;
     width: 100%;
   }
+  .hero-box {
+  background: rgba(250, 248, 244, 0.72);
+  backdrop-filter: blur(3px);
+  padding: 32px 36px;
+  border-radius: 4px;
+  }
   @media (max-width: 640px) {
     .hero { background-image: url('images/bg-mobile.jpg'); min-height: 52vh; }
     .hero::before { background: linear-gradient(180deg, rgba(250,248,244,0.95) 0%, rgba(250,248,244,0.85) 45%, rgba(250,248,244,0.4) 75%); }
@@ -105,8 +111,10 @@
 <body>
 <div class="hero">
   <div class="hero-inner">
-    <h1>We Help You Understand Your Psychiatric Care Plan</h1>
-    <p class="tag">This practice is currently in launch preparation. Full details coming soon.</p>
+    <div class="hero-box">
+      <h1>We Help You Understand Your Psychiatric Care Plan</h1>
+      <p class="tag">This practice is currently in launch preparation. Full details coming soon.</p>
+    </div>
   </div>
 </div>
 <div class="wrap">
