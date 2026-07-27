@@ -62,39 +62,54 @@
     font-family: Georgia, 'Times New Roman', serif;
     line-height: 1.65;
   }
-  .hero {
-    position: relative;
-    min-height: 62vh;
-    background-image: url('images/bg-desktop.jpg');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: flex-start;
-  }
-  .hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(120deg, rgba(250,248,244,0.92) 0%, rgba(250,248,244,0.75) 32%, rgba(250,248,244,0) 60%);
-  }
-  .hero-inner {
-    position: relative;
-    z-index: 1;
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 72px 24px 40px;
-    width: 100%;
-  }
-  .hero-box {
+  .hero-wrap { position: relative; }
+.hero-image {
+  min-height: 62vh;
+  background-image: url('images/bg-desktop.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.hero-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(250,248,244,0.92) 0%, rgba(250,248,244,0.75) 32%, rgba(250,248,244,0) 60%);
+}
+.hero-inner {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 72px 24px 40px;
+}
+.hero-box {
   background: rgba(250, 248, 244, 0.72);
   backdrop-filter: blur(3px);
   padding: 32px 36px;
   border-radius: 4px;
+}
+
+@media (max-width: 640px) {
+  .hero-wrap { display: flex; flex-direction: column; }
+  .hero-image {
+    position: static;
+    min-height: 0;
+    height: 220px;
+    background-image: url('images/bg-mobile.jpg');
   }
-  @media (max-width: 640px) {
-    .hero { background-image: url('images/bg-mobile.jpg'); min-height: 52vh; }
-    .hero::before { background: linear-gradient(180deg, rgba(250,248,244,0.95) 0%, rgba(250,248,244,0.85) 45%, rgba(250,248,244,0.4) 75%); }
+  .hero-image::before { display: none; }
+  .hero-inner {
+    position: static;
+    max-width: none;
+    padding: 28px 24px;
   }
+  .hero-box {
+    background: none;
+    backdrop-filter: none;
+    padding: 0;
+  }
+}
   .wrap { max-width: 680px; margin: 0 auto; padding: 8px 24px 80px; }
   h1 {
     font-size: 1.9rem;
@@ -137,7 +152,8 @@
 </style>
 </head>
 <body>
-<div class="hero">
+<div class="hero-wrap">
+  <div class="hero-image"></div>
   <div class="hero-inner">
     <div class="hero-box">
       <h1>We Help You Understand Your Psychiatric Care Plan</h1>
@@ -145,7 +161,6 @@
     </div>
   </div>
 </div>
-<div class="wrap">
   <p>We take a whole-person approach to psychiatric care — treating the person, not just the symptom list, in the osteopathic tradition. Our style is direct and collaborative: we explain what's happening clearly, in plain terms and in clinical language, so you understand your own care well enough to be an active partner in it.</p>
 
   <h2>We Create a Care Plan for You</h2>
