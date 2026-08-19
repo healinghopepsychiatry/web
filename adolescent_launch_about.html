@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Healing Hope Psychiatry — Adolescent Care</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #E9EEEC;
+    --paper: #F5F7F5;
+    --ink: #1C2622;
+    --ink-soft: #52625B;
+    --gold: #D6963C;
+    --gold-soft: #F1DDB6;
+    --teal: #1F5C52;
+    --teal-soft: #DCEAE6;
+    --line: #C7D2CB;
+    --serif: 'Fraunces', serif;
+    --sans: 'Work Sans', sans-serif;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: var(--teal); }
+
+  .wrap{
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 28px;
+    position: relative;
+  }
+
+  .spine{
+    position: absolute;
+    left: -4px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    z-index: 0;
+  }
+  @media (max-width: 640px){ .spine{ display:none; } }
+
+  .spine svg{
+    position: absolute;
+    top: 0; left: -1px;
+    width: 40px;
+    height: 100%;
+    overflow: visible;
+  }
+
+  .tabs{
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 8px;
+    padding: 32px 0 0;
+  }
+  .tab-btn{
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 9px 20px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+  .tab-btn:hover{ border-color: var(--teal); color: var(--teal); }
+  .tab-btn.active{
+    background: var(--teal);
+    border-color: var(--teal);
+    color: #fff;
+  }
+  .tab-btn:focus-visible{ outline: 2px solid var(--gold); outline-offset: 2px; }
+
+  header{
+    padding: 56px 0 8px;
+    position: relative;
+    z-index: 1;
+  }
+  .eyebrow{
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+  .eyebrow::before{
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 1px;
+    background: var(--gold);
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+  header h1{
+    font-family: var(--serif);
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: clamp(30px, 5vw, 44px);
+    line-height: 1.18;
+    margin-top: 18px;
+    max-width: 16ch;
+    color: var(--ink);
+  }
+  header .subhead{
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(19px, 2.4vw, 23px);
+    line-height: 1.45;
+    color: var(--teal);
+    margin-top: 20px;
+    max-width: 40ch;
+  }
+  header .sub{
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 17px;
+    color: var(--ink-soft);
+    margin-top: 22px;
+    max-width: 58ch;
+  }
+  header .sub + .sub{ margin-top: 10px; }
+
+  main{
+    padding: 56px 0 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  section{
+    padding: 34px 0 34px 34px;
+    position: relative;
+  }
+
+  section::before{
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: 40px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 2px solid var(--gold);
+  }
+  @media (max-width: 640px){
+    section{ padding-left: 0; }
+    section::before{ display:none; }
+  }
+
+  section .waypoint{
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  section p{
+    font-size: 18px;
+    color: var(--ink);
+    max-width: 58ch;
+  }
+  section p + p{ margin-top: 14px; }
+
+  section.opening p{
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(20px, 2.6vw, 25px);
+    line-height: 1.5;
+    color: var(--ink);
+  }
+
+  section.trust::before{ background: var(--gold); }
+
+  section.milestone{ text-align: left; }
+  section.milestone::before{ background: var(--gold-soft); }
+
+  section.purpose{ padding-bottom: 8px; }
+  section.purpose p{
+    font-family: var(--sans);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--ink);
+  }
+  section.purpose .accent{
+    color: var(--teal);
+    font-weight: 500;
+  }
+
+  .horizon{
+    position: relative;
+    z-index: 1;
+    padding: 40px 0 90px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .horizon .sun{
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, var(--gold-soft), var(--gold));
+    flex-shrink: 0;
+  }
+  .horizon .line{
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+
+  footer{
+    border-top: 1px solid var(--line);
+    padding: 28px 0 60px;
+    position: relative;
+    z-index: 1;
+  }
+  footer .brand{
+    font-family: var(--serif);
+    font-size: 17px;
+    color: var(--teal);
+  }
+  footer .tag{
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-top: 4px;
+  }
+
+  .panel{ display: none; }
+  .panel.active{ display: block; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="spine" aria-hidden="true">
+    <svg viewBox="0 0 40 1200" preserveAspectRatio="none">
+      <circle cx="6" cy="10" r="1.6" fill="#C7D2CB"/>
+      <circle cx="14" cy="26" r="1.2" fill="#C7D2CB"/>
+      <circle cx="4" cy="42" r="1.8" fill="#C7D2CB"/>
+      <circle cx="12" cy="60" r="1.3" fill="#C7D2CB"/>
+      <circle cx="5" cy="82" r="1.5" fill="#C7D2CB"/>
+      <circle cx="9" cy="108" r="1.4" fill="#C7D2CB"/>
+      <path d="M8 140 Q 2 200 8 260" stroke="#C7D2CB" stroke-width="1.4" fill="none" stroke-dasharray="1 10" stroke-linecap="round"/>
+      <path d="M8 260 Q 2 340 8 420" stroke="#C7D2CB" stroke-width="1.6" fill="none" stroke-dasharray="1 6" stroke-linecap="round"/>
+      <path d="M8 420 Q 2 520 8 620" stroke="#B9C7BF" stroke-width="1.8" fill="none" stroke-dasharray="1 3" stroke-linecap="round"/>
+      <path d="M8 620 L 8 1200" stroke="#B9C7BF" stroke-width="2" fill="none"/>
+    </svg>
+  </div>
+
+  <nav class="tabs" role="tablist" aria-label="Choose audience">
+    <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="panel-teen" id="tab-teen" data-target="teen">For Teens</button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-parent" id="tab-parent" data-target="parent">For Parents</button>
+  </nav>
+
+  <div class="panel active" id="panel-teen" role="tabpanel" aria-labelledby="tab-teen">
+
+    <header>
+      <div class="eyebrow">Adolescent Care</div>
+      <h1>You can learn a lot from YouTube and TikTok.</h1>
+      <p class="subhead">At Healing Hope Psychiatry, we can figure it out together — with you and your family.</p>
+      <p class="sub">Social media provides information on many topics, including about behavioral health conditions, diagnoses, and treatments. It can be overwhelming.</p>
+      <p class="sub">The key is to understand how this information can help you.</p>
+    </header>
+
+    <main>
+      <section>
+        <div class="waypoint">The First Visit</div>
+        <p>We'll sit in a private room together and have a two-way conversation about you. I'll answer your questions, and get to know you. We'll talk about your behavioral health concerns, and I'll also consider your overall medical history and medication history, as applicable. I'll explain what I think is going on, recommend a plan, and explain how that's going to help you.</p>
+      </section>
+
+      <section>
+        <div class="waypoint">A Journey, Not a Fixed Plan</div>
+        <p>This first visit is just the first step in a journey we'll take together — so the initial plan can change.</p>
+      </section>
+
+      <section class="trust">
+        <div class="waypoint">Trust</div>
+        <p>My primary relationship is with my patient. Your family is involved, but this process is about you. I'll be honest with you about what's between us and what I share with your family.</p>
+      </section>
+
+      <section class="milestone">
+        <div class="waypoint">Turning 18</div>
+        <p>An important milestone in your journey is your 18th birthday — we'll map the plan to the important changes that happen then.</p>
+      </section>
+
+      <section class="purpose">
+        <div class="waypoint">The Point</div>
+        <p>I make diagnoses, recommend treatment, and prescribe medications based on my clinical experience to help you on that journey. Put differently — diagnosis, treatment, and medication aren't the journey. <span class="accent">Building the life you want is the journey.</span></p>
+      </section>
+    </main>
+
+  </div>
+
+  <div class="panel" id="panel-parent" role="tabpanel" aria-labelledby="tab-parent">
+
+    <header>
+      <div class="eyebrow">Adolescent Care</div>
+      <h1>Your teen needs help. We're here for them.</h1>
+      <p class="subhead">At Healing Hope Psychiatry, we help your 16–17 year old on the journey to adulthood.</p>
+      <p class="sub">Your teen is adulting in a different world from you. It's not the world you grew up in, and they may be in a separate world even when they're in your home. It's confusing for you and for them.</p>
+    </header>
+
+    <main>
+      <section>
+        <div class="waypoint">The First Visit</div>
+        <p>I'll meet the family together, and I'll listen to your concerns and the details that are most relevant to you. I will also have private time with your teen so I can get to know them. I'll explain what I think is going on, recommend a plan, and explain how the plan will help.</p>
+      </section>
+
+      <section>
+        <div class="waypoint">A Journey, Not a Fixed Plan</div>
+        <p>This initial visit is the first step in the patient's journey, and the initial plan can change.</p>
+      </section>
+
+      <section class="trust">
+        <div class="waypoint">Trust</div>
+        <p>My primary relationship is with my patient. Parents will be involved, but this process is about the teen. I'll be honest with you about what I share with parents and what's private between me and my patient.</p>
+      </section>
+
+      <section class="milestone">
+        <div class="waypoint">Turning 18</div>
+        <p>An important milestone in this journey is your teen's 18th birthday. The plan will consider the important changes that occur at that time.</p>
+      </section>
+
+      <section class="purpose">
+        <div class="waypoint">The Point</div>
+        <p>I make diagnoses, recommend treatment, and prescribe medications based on my clinical experience to help you all on that journey. Put differently, diagnosis, treatment, and medication aren't the journey. <span class="accent">Helping your teen build their life — that is the journey.</span></p>
+      </section>
+    </main>
+
+  </div>
+
+  <div class="horizon" aria-hidden="true">
+    <div class="sun"></div>
+    <div class="line"></div>
+  </div>
+
+  <footer>
+    <div class="brand">Healing Hope Psychiatry</div>
+    <div class="tag">Gabrielle Evans, DO — Adolescent Transition Care</div>
+  </footer>
+</div>
+
+<script>
+  const tabs = document.querySelectorAll('.tab-btn');
+  const panels = { teen: document.getElementById('panel-teen'), parent: document.getElementById('panel-parent') };
+
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.target;
+
+      tabs.forEach(b => {
+        b.classList.toggle('active', b === btn);
+        b.setAttribute('aria-selected', b === btn ? 'true' : 'false');
+      });
+
+      Object.entries(panels).forEach(([key, panel]) => {
+        panel.classList.toggle('active', key === target);
+      });
+
+      window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>
