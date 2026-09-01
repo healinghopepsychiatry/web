@@ -45,14 +45,31 @@
     padding:28px 32px 0;
     display:flex;
     align-items:center;
+    justify-content:space-between;
     gap:12px;
+    flex-wrap:wrap;
   }
+  .brand{display:flex;align-items:center;gap:12px;}
   .topbar svg{width:34px;height:34px;flex-shrink:0;}
   .topbar span{
     font-family:'Fraunces', serif;
     font-size:1.05rem;
     letter-spacing:0.01em;
     color:var(--plum);
+  }
+  nav{display:flex;gap:28px;align-items:center;}
+  nav a{
+    font-size:0.95rem;
+    font-weight:600;
+    color:var(--ink-soft);
+    text-decoration:none;
+    padding-bottom:2px;
+    border-bottom:1.5px solid transparent;
+    transition:border-color .15s ease, color .15s ease;
+  }
+  nav a:hover, nav a.active{
+    color:var(--plum);
+    border-color:var(--sage);
   }
 
   .hero{
@@ -264,14 +281,21 @@
 <body>
 
   <div class="topbar">
-    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M20 20C20 20 12 8 6 10C0 12 4 22 12 22C16 22 20 20 20 20Z" stroke="#33294A" stroke-width="1.6" stroke-linejoin="round"/>
-      <path d="M20 20C20 20 28 8 34 10C40 12 36 22 28 22C24 22 20 20 20 20Z" stroke="#33294A" stroke-width="1.6" stroke-linejoin="round"/>
-      <path d="M20 20C20 20 14 30 18 34C22 38 24 28 22 22" stroke="#33294A" stroke-width="1.6" stroke-linejoin="round"/>
-      <path d="M20 20C20 20 26 30 22 34C18 38 16 28 18 22" stroke="#33294A" stroke-width="1.6" stroke-linejoin="round"/>
-      <line x1="20" y1="12" x2="20" y2="26" stroke="#33294A" stroke-width="1.6"/>
-    </svg>
-    <span>Healing Hope Psychiatry</span>
+    <div class="brand">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M20 20C20 20 12 8 6 10C0 12 4 22 12 22C16 22 20 20 20 20Z" stroke="#33294A" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M20 20C20 20 28 8 34 10C40 12 36 22 28 22C24 22 20 20 20 20Z" stroke="#33294A" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M20 20C20 20 14 30 18 34C22 38 24 28 22 22" stroke="#33294A" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M20 20C20 20 26 30 22 34C18 38 16 28 18 22" stroke="#33294A" stroke-width="1.6" stroke-linejoin="round"/>
+        <line x1="20" y1="12" x2="20" y2="26" stroke="#33294A" stroke-width="1.6"/>
+      </svg>
+      <span>Healing Hope Psychiatry</span>
+    </div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about-us.html" class="active">About</a>
+      <a href="/contact-us.html">Contact</a>
+    </nav>
   </div>
 
   <section class="hero">
